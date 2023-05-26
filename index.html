@@ -8,6 +8,7 @@
   <!-- <script src="./three.js"></script> -->
   <!-- three.jsを読み込む(CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
 
 </head>
 <body>
@@ -26,14 +27,35 @@
     var scene = new THREE.Scene();
   
     // カメラを作成
-    var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+    var camera = new THREE.PerspectiveCamera(90, width / height, 1, 1000);
+    camera.position.set(0,4,15);
+    //const controls = new THREE.OrbitControls(camera, document.body);  
   
     // 箱を作成
-    var geometry = new THREE.BoxGeometry(10, 1, 1);
-    var material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+    var geometry = new THREE.BoxGeometry(20, 1, 1);
+    var material = new THREE.MeshPhongMaterial({ color: 0x0000ff,wireframe:true });
     var box = new THREE.Mesh(geometry, material);
     box.position.z = -5;
     scene.add(box);
+
+    //球体を作成
+    var geometry_sphere = new THREE.SphereGeometry( 4, 10, 10 );
+    var material = new THREE.MeshBasicMaterial( {color: 0xFF0000,wireframe:true} );
+    var sphere = new THREE.Mesh( geometry_sphere, material );
+    scene.add(sphere);
+
+    //平面
+    var plane =  new THREE.Mesh(                                      
+             new THREE.PlaneGeometry(10, 10, 1, 1),
+              new THREE.MeshLambertMaterial({ 
+                color: 0xfffafa           
+                }));                      
+//plane.rotation.set(-Math.Pi/0.01,0.01,0);
+
+plane.position.set(0,10,-2);
+scene.add(plane); 
+
+
   
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
@@ -53,11 +75,14 @@
       // 箱を回転させる
       box.rotation.x += 0.01;
       box.rotation.y += 0.01;
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
   
       renderer.render(scene, camera);
     };
     update();
   }
+  
   window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
