@@ -83,23 +83,6 @@
         sprite2.position.z = -100;
         sprite2.scale.set(100,100,100);
         scene.add(sprite2);
-
-        // テクスチャー読み込み
-var texture = textureLoader.load("img/earth.png");
-var mat = new THREE.MeshPhongMaterial();
-mat.map = texture;
-// バンプマップ読み込み
-var bump = textureLoader.load("img/earth.png");
-mat.bumpMap = bump;
-mat.bumpscale = 50000;
-// 箱を作成
-var geometry1 = new THREE.BoxGeometry(1, 1, 1);
-var box = new THREE.Mesh(geometry1, mat);
-box.position.set(100,100,-100);
-scene.add(box);
-
-
-
         tick();
         // 毎フレーム時に実行されるループイベントです
         function tick() {
