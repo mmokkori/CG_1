@@ -85,16 +85,19 @@
         scene.add(sprite2);
 
         // テクスチャー読み込み
-        var texture = textureLoader.load("img/earth.png");
-        var mat = new THREE.MeshPhongMaterial();
-        mat.map = texture;
-        // 箱を作成
-        var geometry = new THREE.BoxGeometry(1, 1, 1);
-        //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
-        //var box = new THREE.Mesh(geometry, material);
-        var box = new THREE.Mesh(geometry, mat);
-        box.position.z = -5;
-        scene.add(box);
+var texture = textureLoader.load("img/earth.png");
+var mat = new THREE.MeshPhongMaterial();
+mat.map = texture;
+// バンプマップ読み込み
+var bump = textureLoader.load("img/earth.png");
+mat.bumpMap = bump;
+mat.bumpscale = 0.2;
+// 箱を作成
+var geometry1 = new THREE.BoxGeometry(1, 1, 1);
+var box = new THREE.Mesh(geometry1, mat);
+box.position.set(1.5,0,-5);
+scene.add(box);
+
 
 
         tick();
