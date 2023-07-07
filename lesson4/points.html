@@ -124,21 +124,10 @@
         // マテリアルを作成
         const material = new THREE.PointsMaterial({
           // 一つ一つのサイズ
-          size: 10,
+          size: 100,
           // 色
-            function getRandomInt(min, max) {
-              min = Math.ceil(min);
-              max = Math.floor(max);
-              return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            function getRandomColorCode() {
-              const red = getRandomInt(0, 255).toString(16).padStart(2, "0");
-              const green = getRandomInt(0, 255).toString(16).padStart(2, "0");
-              const blue = getRandomInt(0, 255).toString(16).padStart(2, "0");
-              
-            }
-            const colorCode = getRandomColorCode();
-            console.log(colorCode);
+       
+            color: 0x44f00f,
         　
         });
 
