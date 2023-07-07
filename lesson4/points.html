@@ -32,7 +32,7 @@
 
       // 星屑を作成します (カメラの動きをわかりやすくするため)
       createStarField();
-      createStarField1();
+      
       createStarField2();
 
       function createStarField() {
@@ -67,6 +67,7 @@
         const mesh = new THREE.Points(geometry, material);
         scene.add(mesh);
       }
+        createStarField1();
 
         function createStarField1() {
         // 頂点情報を格納する配列
@@ -100,6 +101,7 @@
         const mesh = new THREE.Points(geometry, material);
         scene.add(mesh);
       }
+        createStarField2();
 
         function createStarField2() {
         // 頂点情報を格納する配列
@@ -133,11 +135,6 @@
         const mesh = new THREE.Points(geometry, material);
         scene.add(mesh);
       }
-
-        
-  
-      
-
       tick();
 
       // 毎フレーム時に実行されるループイベントです
