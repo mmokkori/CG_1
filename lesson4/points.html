@@ -32,6 +32,8 @@
 
       // 星屑を作成します (カメラの動きをわかりやすくするため)
       createStarField();
+      createStarField1();
+      createStarField2();
 
       function createStarField() {
         // 頂点情報を格納する配列
@@ -115,8 +117,8 @@
         const mesh = new THREE.Points(geometry, material);
         scene.add(mesh);
       }
-          const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices2, 3));
+         const geometry = new THREE.BufferGeometry();
+         geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices2, 3));
 
         // マテリアルを作成
         const material = new THREE.PointsMaterial({
