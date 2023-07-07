@@ -51,10 +51,26 @@
 
           vertices.push(x, y, z);
         }
+          // 形状データを作成
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+
+        // マテリアルを作成
+        const material = new THREE.PointsMaterial({
+          // 一つ一つのサイズ
+          size: 10,
+          // 色
+          color: 0x44f00f,
+        });
+
+        // 物体を作成
+        const mesh = new THREE.Points(geometry, material);
+        scene.add(mesh);
+      }
 
         function createStarField1() {
         // 頂点情報を格納する配列
-        const vertices1 = [];
+        const vertices = [];
 
         // 配置する範囲
         const SIZE = 3000;
@@ -68,6 +84,22 @@
 
           vertices1.push(x, y, z);
         }
+            // 形状データを作成
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+
+        // マテリアルを作成
+        const material = new THREE.PointsMaterial({
+          // 一つ一つのサイズ
+          size: 10,
+          // 色
+          color: 0x44f00f,
+        });
+
+        // 物体を作成
+        const mesh = new THREE.Points(geometry, material);
+        scene.add(mesh);
+      }
 
         function createStarField2() {
         // 頂点情報を格納する配列
@@ -85,8 +117,7 @@
 
           vertices2.push(x, y, z);
         }
-
-        // 形状データを作成
+            // 形状データを作成
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
 
@@ -102,36 +133,10 @@
         const mesh = new THREE.Points(geometry, material);
         scene.add(mesh);
       }
-    const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices1, 3));
 
-        // マテリアルを作成
-        const material = new THREE.PointsMaterial({
-          // 一つ一つのサイズ
-          size: 10,
-          // 色
-          color: 0xff1200f,
-        });
-
-        // 物体を作成
-        const mesh = new THREE.Points(geometry, material);
-        scene.add(mesh);
-      }
-         const geometry = new THREE.BufferGeometry();
-         geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices2, 3));
-
-        // マテリアルを作成
-        const material = new THREE.PointsMaterial({
-          // 一つ一つのサイズ
-          size: 10,
-          // 色
-          color: 0xfff00f,
-        });
-
-        // 物体を作成
-        const mesh = new THREE.Points(geometry, material);
-        scene.add(mesh);
-      }
+        
+  
+      
 
       tick();
 
